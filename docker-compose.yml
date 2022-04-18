@@ -8,8 +8,8 @@ services:
       - .env
     volumes:
       - type: bind
-        source: "./nginx/nginx.conf"
-        target: "/etc/nginx/nginx.conf"
+        source: "./nginx/templates"
+        target: "/etc/nginx/templates"
       - type: bind
         source: "./nginx/ssl"
         target: "/etc/nginx/ssl"
