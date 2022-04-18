@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  proxy:
+    image: nginx
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - type: bind
+        source: "./nginx/nginx.conf"
+        target: "/etc/nginx/nginx.conf"
+      - type: bind
+        source: "./nginx/ssl"
+        target: "/etc/nginx/ssl"
+    ports:
+      - "443:443"
+
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+    volumes:
+      - ./initdb.d:/docker-entrypoint-initdb.d
+
+  api:
+    depends_on: 
+      - db
+      - proxy
+    build:
+      context: ./api
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_HOST: db
+      MYSQL_DATABASE: app
+  
+  front:
+    depends_on: 
+      - api
+    build:
+      context: ./front
+    restart: always
+    env_file:
+      - .env
