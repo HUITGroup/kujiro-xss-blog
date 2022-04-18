@@ -2,6 +2,6 @@
 {
 	public static class Setting
 	{
-		public static readonly string HostAddr = Environment.GetEnvironmentVariable("API_URL");
+		public static readonly string HostAddr = Environment.GetEnvironmentVariable("URL_API");
 	}
 }
