@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -39,6 +40,25 @@ func handlerGetPost(c echo.Context) error {
 		return c.String(http.StatusNotFound, "記事がありません")
 	}
 	return c.JSON(http.StatusOK, post)
+}
+
+func handlerGetPostReturnHTML(c echo.Context) error {
+	var post Post
+	postID := c.Param("post_id")
+	query := `
+		SELECT 
+			id, title, content, create_at 
+		FROM
+			posts
+		WHERE
+			id = ?`
+	if err := db.Get(&post, query, postID); err != nil {
+		return c.String(http.StatusNotFound, "記事がありません")
+	}
+
+	p, _ := json.Marshal(post)
+
+	return c.HTML(http.StatusOK, string(p))
 }
 
 func handlerGetComments(c echo.Context) error {

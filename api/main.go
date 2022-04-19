@@ -26,6 +26,7 @@ func main() {
 	e := echo.New()
 	e.GET("/post/list", handlerGetPostList)
 	e.GET("/post/:post_id", handlerGetPost)
+	e.GET("/post/:post_id/html", handlerGetPostReturnHTML)
 	e.GET("/post/:post_id/comments", handlerGetComments)
 
 	e.POST("/post", handlerCreatePost)
