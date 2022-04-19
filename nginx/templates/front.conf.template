@@ -1,9 +1,9 @@
 server {
     listen 443 ssl;
-    server_name ${FRONT_SERVER_NAME};
+    server_name ${NGINX_FRONT_SERVER_NAME};
 
-    ssl_certificate /etc/nginx/ssl/${FRONT_CRT_FILENAME};
-    ssl_certificate_key /etc/nginx/ssl/${FRONT_KEY_FILENAME};
+    ssl_certificate /etc/nginx/ssl/${NGINX_FRONT_CRT_FILENAME};
+    ssl_certificate_key /etc/nginx/ssl/${NGINX_FRONT_KEY_FILENAME};
 
     ssl_session_cache shared:SSL:5m;
 
