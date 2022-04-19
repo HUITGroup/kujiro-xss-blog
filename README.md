@@ -6,11 +6,11 @@
 
 1. docker と docker-compose のインストール
 
-  それぞれの環境に合わせてインストールをお願いします。
+    それぞれの環境に合わせてインストールをお願いします。
 
-  docker compose (compose v2) でも大丈夫です。
+    docker compose (compose v2) でも大丈夫です。
 
-  その場合は `docker-compose` を `docker compose` に読み替えてください。
+    その場合は `docker-compose` を `docker compose` に読み替えてください。
 
 1. `git clone https://github.com/HUITGroup/kujiro-xss-blog.git && cd kujiro-xss-blog`
 
@@ -18,9 +18,9 @@
 
 1. docker-compose で構築
 
-  ```bash
-  docker-compose -f local.compose.yml up
-  ```
+    ```bash
+    docker-compose -f local.compose.yml up
+    ```
 
 1. ブラウザで `localhost:8080` に接続して遊ぶ
 
@@ -30,10 +30,10 @@
 1. [sample.env](/sample.env) を .env にリネームして内容を記入する (リバースプロキシとなるnginxの設定)
 1. docker-compose で構築
 
-  ```bash
-  docker-compose -f server.compose.yml up
-  ```
+    ```bash
+    docker-compose -f server.compose.yml up
+    ```
 
 1. https://<サーバアドレス> で接続して遊ぶ
 
-  もし接続できない場合は、ファイアウォールやログなどを確認してください。
+    もし接続できない場合は、ファイアウォールやログなどを確認してください。
