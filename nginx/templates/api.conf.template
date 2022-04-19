@@ -1,9 +1,9 @@
 server {
     listen 443 ssl;
-    server_name ${SERVER_NAME_API};
+    server_name ${API_SERVER_NAME};
 
-    ssl_certificate /etc/nginx/ssl/${CRT_FILENAME_API};
-    ssl_certificate_key /etc/nginx/ssl/${KEY_FILENAME_API};
+    ssl_certificate /etc/nginx/ssl/${API_CRT_FILENAME};
+    ssl_certificate_key /etc/nginx/ssl/${API_KEY_FILENAME};
 
     ssl_session_cache shared:SSL:5m;
 
