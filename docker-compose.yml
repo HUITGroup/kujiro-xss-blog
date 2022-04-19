@@ -47,3 +47,5 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      API_HOST_ADDR: "http://api"

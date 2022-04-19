@@ -1,6 +1,6 @@
 server {
     listen 443 ssl;
-    server_name ${URL_FRONT};
+    server_name ${SERVER_NAME_FRONT};
 
     ssl_certificate /etc/nginx/ssl/${CRT_FILENAME_FRONT};
     ssl_certificate_key /etc/nginx/ssl/${KEY_FILENAME_FRONT};
